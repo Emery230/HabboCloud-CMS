@@ -1,0 +1,9 @@
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://habbo.cloud/$1 [R,L]
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA,NC]
